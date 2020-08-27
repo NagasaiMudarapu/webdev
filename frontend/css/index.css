@@ -6,7 +6,7 @@
 	box-sizing: border-box;
 }
 
-h1 {
+headtext {
 	font-family: 'Arima Madurai', cursive;
 	color: black;
 	font-size: 4rem;
@@ -214,4 +214,21 @@ h1 {
 		transform: translateY(0vh) translateX(110vw) scale(0.45);
 	}
 	
+}
+
+.items-tags{
+    margin-left: 18px;
+    margin-right: 18px;
+    text-align: center;
+}
+#img-tags{
+    width: 160;
+    height: 160;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(135, 138, 141, 0.932), 0 6px 20px 0 rgba(187, 189, 192, 0.884);
+}
+#id-tags{
+	color:mediumblue ;
+	font-style: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top: 10px;
 }
