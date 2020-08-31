@@ -6,10 +6,104 @@
         <link rel="stylesheet" href="\css\quiz.css">
     </head>
     <body>
-        <div class = "page">
-            <div class = "content">
-                
-            </div>    
+        <div class = "page" style="width : 50% ;">
+            <div class = "content" style="text-align : center">
+                <div id = "ind">
+                    <br>
+                    <h2> Enter Your Details </h2>
+                    <br>
+                    <form name = "form">
+                    </form>Name: <input type = "text" name = "name">
+                        <input type="button" id = "start" value="Start Quiz">
+                    </form>
+                    <br>
+                </div>
+                <div id = "Q1" class = "Question">
+                    <br>
+                    <h2> What is 1 + 1 ?</h2>
+                    <table style = " width : 100%">
+                        <tr>
+                            <td id = "Q1A" style = "text-align: right;"> <input type = "button" id = "Q1Abtn" style = "width : 150px" value="1"> </td>
+                            <td id = "Q1B"> <input type="button" id = "Q1Bbtn" style = "width : 150px" value="2"> </td>
+                        </tr>
+                        <tr>
+                            <td id = "Q1C" style = "text-align: right;"> <input type = "button" id = "Q1Cbtn" style = "width : 150px" value="3"> </td>
+                            <td id = "Q1D"> <input type="button" id = "Q1Dbtn" style = "width : 150px" value="4"> </td>
+                        </tr>
+                    </table>
+                    <br><input type="button" id = "1nxt" value = "Next">
+                </div>
+                <br>
+                <div id = "Q2" class = "Question">
+                    <br>
+                    <h2> What is 2 <sup>2</sup> ?</h2>
+                    <table style = " width : 100%">
+                        <tr>
+                            <td id = "Q2A"style = "text-align: right;"> <input type="button" id = "Q2Abtn" style = "width : 150px" value="5"> </td>
+                            <td id = "Q2B"> <input type="button" id = "Q2Bbtn" style = "width : 150px" value="4"> </td>
+                        </tr>
+                        <tr>
+                            <td id = "Q2C" style = "text-align: right;"> <input type="button" id = "Q2Cbtn" style = "width : 150px" value="7"> </td>
+                            <td id = "Q2D"> <input type="button" id = "Q2Dbtn" style = "width : 150px" value="3"> </td>
+                        </tr>
+                    </table>
+                    <br><input type="button" id = "2nxt" value = "Next">
+                </div>
+                <div id = "Q3" class = "Question">
+                    <br>
+                    <h2> What is value of x ? <br> if x + 3 = 5 </h2>
+                    <table style = " width : 100%">
+                        <tr>
+                            <td id = "Q3A" style = "text-align: right;"> <input type="button" id = "Q3Abtn" style = "width : 150px " value="-1"> </td>
+                            <td id = "Q3B"> <input type="button" id = "Q3Bbtn" style = "width : 150px " value="0"> </td>
+                        </tr>
+                        <tr>
+                            <td id = "Q3C" style = "text-align: right;"> <input type="button" id = "Q3Cbtn" style = "width : 150px" value="2"> </td>
+                            <td id = "Q3D"> <input type="button" id = "Q3Dbtn" style = "width : 150px" value="8"> </td>
+                        </tr>
+                    </table>
+                    <br><input type="button" id = "3nxt" value = "Next">
+                </div>
+                <div id = "Q4" class = "Question">
+                    <br>
+                    <h2> What is value of (1/0) ? </h2>
+                    <table style = " width : 100%">
+                        <tr>
+                            <td id = "Q4A" style = "text-align: right;"> <input type="button" id = "Q4Abtn" style = "width : 150px " value="-1"> </td>
+                            <td id = "Q4B"> <input type="button" id = "Q4Bbtn" style = "width : 150px " value="0"> </td>
+                        </tr>
+                        <tr>
+                            <td id = "Q4C" style = "text-align: right;"> <input type="button" id = "Q4Cbtn" style = "width : 150px" value="1"> </td>
+                            <td id = "Q4D"> <input type="button" id = "Q4Dbtn" style = "width : 150px" value="undefined"> </td>
+                        </tr>
+                    </table>
+                    <br><input type="button" id = "4nxt" value = "Next">
+                </div>
+                <div id = "Q5" class = "Question">
+                    <br>
+                    <h2> What is value of 0-(-7) ? </h2>
+                    <table style = " width : 100%">
+                        <tr>
+                            <td id = "Q5A" style = "text-align: right;"> <input type="button" id = "Q5Abtn" style = "width : 150px " value="7"> </td>
+                            <td id = "Q5B"> <input type="button" id = "Q5Bbtn" style = "width : 150px " value="1"> </td>
+                        </tr>
+                        <tr>
+                            <td id = "Q5C" style = "text-align: right;"> <input type="button" id = "Q5Cbtn" style = "width : 150px" value="0"> </td>
+                            <td id = "Q5D"> <input type="button" id = "Q5Dbtn" style = "width : 150px" value="-7"> </td>
+                        </tr>
+                    </table>
+                    <input type="button" id = "5nxt" value = "Next">
+                </div>
+                <div id = "Results">
+                    <br>
+                    <h2 id = "usr"></h2>
+                    <h3 id = "score"></h3>
+                    <h3 id = "perf"></h3>
+                    <br>
+                </div>
+            </div> 
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src = "\js\quiz.js"></script>   
         </div>
         <i class="fas fa-home"> <a href = "\"> Back to Home</a> </i>
     </body>
