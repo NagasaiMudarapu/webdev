@@ -23,7 +23,20 @@ $(document).ready(function()
         numbers[ind] = numbers[numlen - 1];
         numlen-- ;
         document.getElementById("num").innerHTML = n ;
-        document.getElementById("n" + n).style.backgroundColor = "green";
+        if(n & 1)
+        {
+          if(((n - 1) / 10) & 1)
+          document.getElementById("n" + n).style.backgroundColor = "yellow" ;
+          else 
+          document.getElementById("n" + n).style.backgroundColor = "orange";
+        }
+        else 
+        {
+          if(((n - 1) / 10) & 1)
+          document.getElementById("n" + n).style.backgroundColor = "orange";
+          else 
+          document.getElementById("n" + n).style.backgroundColor = "yellow";
+        }
       }
     });
     $("#clr").click(function()
@@ -36,13 +49,3 @@ $(document).ready(function()
       document.getElementById("n" + i).style.backgroundColor = "white";
     });
 });
-
-function clearboard(){
-  document.getElementById("numdis").innerHTML="";
-  for(let i=0;i<90;i++){
-    numbers[i]=i+1;
-    var x = "n" + numbers[i];
-    document.getElementById(x).style.backgroundColor="white";
-  }
-  c=0;
-}

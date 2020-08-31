@@ -21,6 +21,14 @@ ap.get('/tambola', function(req, res)
 {
     res.sendFile(__dirname + '/frontend/html/tambola.html');
 }) ;
+ap.get('/quiz', function(req, res)
+{
+    res.sendFile(__dirname + '/frontend/html/quiz.html');
+}) ;
+ap.get('/form', function(req, res)
+{
+    res.sendFile(__dirname + '/frontend/html/form.html');
+}) ;
 
 var port = process.env.PORT || 3000 ;
 ap.listen(port, function()
