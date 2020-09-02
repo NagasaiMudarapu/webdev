@@ -5,12 +5,12 @@ $(document).ready(function()
     $("#Q3").hide();
     $("#Q4").hide();
     $("#Q5").hide();
-    $("Results").hide();
+    $("#Results").hide();
     $("#start").click(function()
     {
         var score = 0 ;
-        var name = document.forms["form"]["name"].value ;
-        if(name == "undefined")
+        var name = nme.value;
+        if(!name)
         alert("Name is required");
         else 
         {
@@ -218,8 +218,8 @@ $(document).ready(function()
                             $("#5nxt").click(function()
                             {
                                 $("#Q5").hide();
-                                $("Results").show();
-                                document.getElementById("usr").innerHTML = "Hello!" + name ;
+                                $("#Results").show();
+                                document.getElementById("usr").innerHTML = "Hello! " + name ;
                                 document.getElementById("score").innerHTML = "Your Score is " + score + "/5" ;
                             });
                         });
