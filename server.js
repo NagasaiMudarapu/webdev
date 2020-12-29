@@ -30,6 +30,11 @@ ap.get('/form', function(req, res)
     res.sendFile(__dirname + '/frontend/html/form.html');
 }) ;
 
+ap.get('/potti', function(req, res)
+{
+    res.sendFile(__dirname + '/frontend/html/potti.html');
+}) ;
+
 var port = process.env.PORT || 3000 ;
 ap.listen(port, function()
 {

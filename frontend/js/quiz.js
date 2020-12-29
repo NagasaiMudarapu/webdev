@@ -9,7 +9,7 @@ $(document).ready(function()
     $("#start").click(function()
     {
         var score = 0 ;
-        var name = nme.value;
+        var name = name.value;
         if(!name)
         alert("Name is required");
         else 
