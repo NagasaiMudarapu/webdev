@@ -30,9 +30,9 @@ ap.get('/form', function(req, res)
     res.sendFile(__dirname + '/frontend/html/form.html');
 }) ;
 
-ap.get('/potti', function(req, res)
+ap.get('/cfcrawler', function(req, res)
 {
-    res.sendFile(__dirname + '/frontend/html/potti.html');
+    res.sendFile(__dirname + '/frontend/html/cfhome.html');
 }) ;
 
 var port = process.env.PORT || 3000 ;

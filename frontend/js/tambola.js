@@ -7,6 +7,7 @@ $(document).ready(function()
     $(".board").hide();
     $("#start").click(function()
     {
+        alert("YES") ;
         $(".board").show();
         $("#start").hide(); 
     });

@@ -9,7 +9,7 @@ $(document).ready(function()
     $("#start").click(function()
     {
         var score = 0 ;
-        var name = name.value;
+        var name = $("#name").val();
         if(!name)
         alert("Name is required");
         else 
