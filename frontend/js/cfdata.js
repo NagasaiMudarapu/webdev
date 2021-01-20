@@ -1,10 +1,4 @@
 var API = "https://codeforces.com/api/" ;
-function userexist(handle)
-{
-    var api = API + "user.info?handles=" + handle ;
-    if(api["status"] == "FAILED")
-    return 
-}
 $(document).ready(function()
 {
     $("#form").show() ;
@@ -31,7 +25,6 @@ $(document).ready(function()
                 console.log(api) ;
                 $.get(api, function(data, status)
                 {
-                    // console.log(data) ;
                     var verdicts = {} ;
                     var lang = {} ;
                     for(var i = 0 ; i < data.result.length ; i++)
@@ -39,9 +32,10 @@ $(document).ready(function()
                         if(verdicts[data.result[i].verdict] === undefined)
                         verdicts[data.result[i].verdict] = 0 ;
                         verdicts[data.result[i].verdict]++ ;
-                        lang[data.result.programmingLanguage]++ ;
+                        if(lang[data.result[i].programmingLanguage] === undefined)
+                        lang[data.result[i].programmingLanguage] = 0 ; 
+                        lang[data.result[i].programmingLanguage]++ ;
                     }
-                    console.log(verdicts) ;
                     x = "The Verdicts of " + H + "<br> &nbsp &nbsp";
                     x += "<table width = 25%>" ;
                     x += "<tr><th>Verdict</th><th>Count</th></tr>" ;
@@ -49,7 +43,6 @@ $(document).ready(function()
                     var ver = "" ;
                     var cnt = "" ;
                     var JSN = JSON.stringify(verdicts);
-                    // alert(JSN) ;
                     for(var i = 0 ; i < JSN.length ; i++)
                     {
                         if(JSN[i] == "\"")
@@ -75,7 +68,41 @@ $(document).ready(function()
                     }
                     x += "</table>" ;
                     document.getElementById("ver").innerHTML = x ;
-                    console.log(x) ;
+                    x = "" ;
+
+                    x = "The Languages of " + H + "<br> &nbsp &nbsp";
+                    x += "<table width = 25%>" ;
+                    x += "<tr><th>Language</th><th>Count</th></tr>" ;
+                    var inword = false, innum = false ;
+                    var ver = "" ;
+                    var cnt = "" ;
+                    var JSN = JSON.stringify(lang);
+                    for(var i = 0 ; i < JSN.length ; i++)
+                    {
+                        if(JSN[i] == "\"")
+                        {
+                            if(!inword)
+                            x += "<tr>" ; 
+                            inword ^= true ;
+                            if(ver != "")
+                            {
+                                x += "<td class = \"bor\" >" + ver + "</td>" ;
+                                ver = "" ;
+                            }
+                        }
+                        else if(JSN[i] == ":") innum = true ;
+                        else if(JSN[i] == "," || JSN[i] == "}")
+                        {
+                            innum = false ;
+                            x += "<td class = \"bor\" >" + cnt + "</td></tr>" ;
+                            cnt = "" ;
+                        }
+                        else if(innum) cnt += JSN[i] ;
+                        else if(inword) ver += JSN[i] ;
+                    }
+                    x += "</table>" ;
+                    document.getElementById("lang").innerHTML = x ;
+                    x = "" ;
                 }).fail(function(xhr, status)
                 {
                     alert("Error Ocuured!!") ;
