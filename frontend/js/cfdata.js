@@ -101,7 +101,7 @@ $(document).ready(function()
                         else if(inword) ver += JSN[i] ;
                     }
                     x += "</table>" ;
-                    document.getElementById("lang").innerHTML = x ;
+                    document.getElementById("lan").innerHTML = x ;
                     x = "" ;
                 }).fail(function(xhr, status)
                 {
@@ -110,6 +110,48 @@ $(document).ready(function()
                     $("#details").hide() ;
                     return ;
                 }) ;
+                api = "https://codeforces.com/api/user.rating?handle=" + H ;
+                console.log(api) ;
+                $.get(api, function(data, status)
+                {
+                    x = "" ;
+                    x = "The contest of " + H + "<br> &nbsp &nbsp " ;
+                    x += "<table width = 100%>" ;
+                    x += "<tr><th>Contest ID</th><th>Contest Name</th><th>Rank</th></tr>" ;
+                    for(var i = 0 ; i < data.result.length ; i++)
+                    {
+                        x += "<tr>" ;
+                        x += "<td>" ;
+                        var JSN = JSON.stringify(data.result[i]) ;
+                        for(var j = 13 ; JSN[j] != "," ; j++)
+                        x += JSN[j] ;
+                        x += "</td><td>" ;
+                        var ind = 1 ;
+                        for(var j = 33 ; JSN[j] != '\"' ; j++)
+                        {
+                            ind = j ;
+                            x += JSN[j] ; 
+                        }
+                        x += "</td>" ;
+                        ind += 13 ;
+                        var ind2 = 1;
+                        for(var j = ind ; JSN[j] != '\"' ; j++)
+                        {
+                            ind2 = j ;
+                        }
+                        ind2 += 10 ;
+                        ind = ind2 ;
+                        x += "<td>" ;
+                        for(var j = ind ; JSN[j] != "," ; j++)
+                        x += JSN[j] ;
+                        x += "</td>" ;
+                        x += "</tr>" ;
+                    }
+                    x += "</table>" ;
+                    console.log(x) ;
+                    document.getElementById("con").innerHTML = x ;
+                    x = "" ;
+                })
             }).fail(function(xhr, status)
             {
                 alert("User Not Found!!") ;
