@@ -1,4 +1,5 @@
 var API = "https://codeforces.com/api/" ;
+
 $(document).ready(function()
 {
     $("#form").show() ;
@@ -27,11 +28,17 @@ $(document).ready(function()
                 {
                     var verdicts = {} ;
                     var lang = {} ;
+                    var crctsub = [] ;
+                    var crct = 0 ;
                     for(var i = 0 ; i < data.result.length ; i++)
                     {
                         if(verdicts[data.result[i].verdict] === undefined)
                         verdicts[data.result[i].verdict] = 0 ;
                         verdicts[data.result[i].verdict]++ ;
+                        var ok = "\"OK\"" ;
+                        var ver = JSON.stringify(data.result[i].verdict) ;
+                        if(ver == ok)
+                        crctsub[crct++] = data.result[i].problem ;
                         if(lang[data.result[i].programmingLanguage] === undefined)
                         lang[data.result[i].programmingLanguage] = 0 ; 
                         lang[data.result[i].programmingLanguage]++ ;
@@ -103,6 +110,28 @@ $(document).ready(function()
                     x += "</table>" ;
                     document.getElementById("lan").innerHTML = x ;
                     x = "" ;
+                    x = "The correct Submissions are : <br>" ;
+                    x += "<table width = 100%>" ;
+                    x += "<tr><th> Problem Name </th><th>Problem link</th><th>Rating</th></tr>" ;
+                    for(var i = 0 ; i < crctsub.length ; i++)
+                    {
+                        x += "<tr><td>" ;
+                        x += JSON.stringify(crctsub[i].name) ;
+                        x += "</td><td>"
+                        x += "<a href=\"" ;
+                        x += "https://www.codeforces.com/contest/" + JSON.stringify(crctsub[i].contestId) + "/problem/" ;
+                        var ind =  JSON.stringify(crctsub[i].index) ;
+                        for(var j = 1 ; j < ind.length - 1 ; j++)
+                        x += ind[j] ;
+                        x += "\"> LINK </a>" ;
+                        x += "</td><td>" ;
+                        x += JSON.stringify(crctsub[i].rating) ;
+                        x += "</td></tr>" ;
+                    }
+                    x += "</table>" ;
+                    console.log(x) ;
+                    document.getElementById("crct").innerHTML = x ;
+                    x = "" ;
                 }).fail(function(xhr, status)
                 {
                     alert("Error Ocuured!!") ;
@@ -148,7 +177,6 @@ $(document).ready(function()
                         x += "</tr>" ;
                     }
                     x += "</table>" ;
-                    console.log(x) ;
                     document.getElementById("con").innerHTML = x ;
                     x = "" ;
                 })

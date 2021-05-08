@@ -18,7 +18,7 @@ $(document).ready(function()
             $("#Q1").show();
             $("#Q1Abtn").click(function()
             {
-                document.getElementById('Q1Abtn').style.backgroundColor = 'Red';
+                    
                 document.getElementById('Q1Bbtn').style.backgroundColor = 'Green' ;
                 document.getElementById('Q1Abtn').disabled = true ;
                 document.getElementById('Q1Bbtn').disabled = true ;
